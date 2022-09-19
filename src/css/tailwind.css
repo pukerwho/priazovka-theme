@@ -96,3 +96,7 @@ body {
 .content li:last-of-type {
   @apply mb-0;
 }
+
+.treba-links a {
+  @apply block;
+}

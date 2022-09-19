@@ -103,7 +103,7 @@
       </div>
       <div>
         <div class="text-lg font-medium opacity-75 mb-4">🔗 <?php _e("Полезные ссылки", "treba-wp"); ?></div>
-        <div>
+        <div class="treba-links">
           <?php do_shortcode('[render-treba-links]'); ?>
           <?php echo do_shortcode('[render-treba-top-links]'); ?>  
         </div>
