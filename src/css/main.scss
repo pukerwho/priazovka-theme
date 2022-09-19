@@ -1,0 +1,41 @@
+@import "mixins";
+@import "modals";
+
+body {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.25;
+  font-weight: 300;
+}
+
+.breadcrumbs {
+  &_item {
+    position: relative;
+    &:first-of-type {
+      background: url("../../images/home.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 0px -1.5px;
+    }
+    &:last-of-type {
+      &:after {
+        content: none;
+      }
+    }
+    &:after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      top: 51%;
+      right: -1rem;
+      background: url("../../images/breadcrumbs-arrow.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      -webkit-transform: translateY(-50%) translateX(-100%);
+      -ms-transform: translateY(-50%) translateX(-100%);
+      transform: translateY(-50%) translateX(-100%);
+    }
+  }
+}

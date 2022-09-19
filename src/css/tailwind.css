@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-white dark:bg-zinc-800 text-gray-800 dark:text-gray-200;
+}
+.absolute-link {
+  @apply w-full h-full absolute top-0 left-0 z-10;
+}
+.btn-primary {
+  @apply bg-indigo-500 text-gray-200 rounded;
+}
+.btn-secondary {
+  @apply bg-gray-200 hover:bg-indigo-500 dark:bg-gray-600 dark:text-gray-200 hover:dark:bg-gray-700 text-gray-800 hover:text-gray-200 rounded;
+}
+.space-top {
+  @apply pt-24;
+}
+
+.header {
+  @apply w-full py-6 z-10;
+}
+.header .sub-menu {
+  @apply bg-gradient-to-r from-main-gray to-main-dark border-2 border-main-gray hover:text-white rounded-xl px-6 py-4;
+}
+.header .top-menu {
+  @apply -mx-3;
+}
+.header .top-menu li {
+  @apply px-3;
+}
+.header .top-menu a {
+  @apply hover:text-blue-500;
+}
+.welcome-image {
+  @apply relative rounded-xl;
+}
+.welcome-image-bg {
+  @apply w-full h-full absolute;
+}
+.welcome-title {
+  @apply text-3xl xl:text-5xl xl:leading-16;
+}
+.welcome-description {
+  @apply text-lg xl:text-xl;
+}
+.welcome-btn {
+  @apply inline-flex p-3 xl:p-4;
+}
+
+.custom-input {
+  @apply rounded outline-none;
+}
+.custom-input:focus {
+  @apply border border-primary;
+}
+
+.pagination .page-numbers {
+  @apply inline-flex items-center justify-center w-10 h-10 border border-primary rounded hover:text-white hover:bg-primary px-3 mx-3;
+}
+.pagination .page-numbers.current {
+  @apply bg-white text-main-dark;
+}
+
+.content a {
+  @apply text-primary;
+}
+.content p {
+  @apply leading-[1.5] mb-4;
+}
+.content p:last-of-type {
+  @apply mb-0;
+}
+.content h2 {
+  @apply text-3xl mb-6 mt-6;
+}
+.content h3 {
+  @apply text-2xl mb-4 mt-6;
+}
+.content h4 {
+  @apply text-xl mb-4 mt-6;
+}
+.content ul {
+  @apply list-disc text-gray-800 dark:text-gray-200 ml-4 mb-8;
+}
+.content ol {
+  @apply list-none text-gray-800 dark:text-gray-200 mb-8;
+}
+.content ul li {
+  @apply list-disc;
+}
+.content li {
+  @apply text-gray-800 dark:text-gray-200 mb-2;
+}
+.content li:last-of-type {
+  @apply mb-0;
+}
