@@ -5,7 +5,8 @@
     'taxonomy' => 'city',
     'orderby' => 'count'
   ) );
-  foreach ($cities as $city){ ?>
+  shuffle( $cities );
+  foreach (array_slice($cities, 0, 6) as $city){ ?>
     <div class="relative bg-gray-200 dark:bg-gray-500 hover:bg-red-200 hover:dark:bg-red-300 hover:dark:text-gray-800 rounded-lg p-3 mb-3">
       <a href="<?php echo get_term_link($city->term_id, 'city') ?>" class="absolute-link"></a>
       <div class="font-medium text-sm">➡️ <?php echo $city->name; ?></div>
