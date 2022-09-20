@@ -98,5 +98,5 @@ body {
 }
 
 .treba-links a {
-  @apply block;
+  @apply block text-sm mb-1;
 }

@@ -101,13 +101,6 @@
       <div>
         <?php echo get_template_part('template-parts/components/allcity-block'); ?>
       </div>
-      <div>
-        <div class="text-lg font-medium opacity-75 mb-4">🔗 <?php _e("Полезные ссылки", "treba-wp"); ?></div>
-        <div class="treba-links">
-          <?php do_shortcode('[render-treba-links]'); ?>
-          <?php echo do_shortcode('[render-treba-top-links]'); ?>  
-        </div>
-      </div>
     </div>
   </div>
   
