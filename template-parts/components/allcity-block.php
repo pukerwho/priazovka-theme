@@ -3,7 +3,8 @@
   <?php
   $cities = get_terms( array( 
     'taxonomy' => 'city',
-    'orderby' => 'count'
+    'orderby' => 'count',
+    'parent' => 0
   ) );
   shuffle( $cities );
   foreach (array_slice($cities, 0, 6) as $city){ ?>

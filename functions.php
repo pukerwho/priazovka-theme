@@ -152,3 +152,27 @@ add_filter('get_the_archive_title', function ($title) {
   }
   return $title;
 });
+
+
+function get_min_price($post_id) {
+  if ( metadata_exists( 'post', $post_id, 'hotel_min_price' ) ) {
+    $hotel_min_price = get_post_meta( $post_id, 'hotel_min_price', true );
+    return $hotel_min_price;
+  } else {
+    $rand_min_price = mt_rand(1, 5);
+    add_post_meta( $post_id, 'hotel_min_price', $rand_min_price, true);
+    $hotel_min_price = get_post_meta( $post_id, 'hotel_min_price', true );
+    return $hotel_min_price;
+  }
+}
+function get_max_price($post_id) {
+  if ( metadata_exists( 'post', $post_id, 'hotel_max_price' ) ) {
+    $hotel_max_price = get_post_meta( $post_id, 'hotel_max_price', true );
+    return $hotel_max_price;
+  } else {
+    $rand_max_price = mt_rand(5, 9);
+    add_post_meta( $post_id, 'hotel_max_price', $rand_max_price, true);
+    $hotel_max_price = get_post_meta( $post_id, 'hotel_max_price', true );
+    return $hotel_max_price;
+  }
+}
