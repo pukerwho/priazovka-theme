@@ -1,5 +1,7 @@
 <?php 
 $current_cat_id = get_queried_object_id();
+$taxonomyName = "city";
+$term = get_term_by('slug', get_query_var('term'), $taxonomyName);
 ?>
 
 <?php get_header(); ?>
@@ -14,7 +16,29 @@ $current_cat_id = get_queried_object_id();
       <!-- end all categories -->
     </div>
     <div class="w-full xl:w-8/12 xl:px-3 mb-6 xl:mb-0">
-      <div class="text-2xl xl:text-3xl mb-4"><?php single_term_title(); ?></div>
+      <div class="text-2xl xl:text-3xl mb-4">
+        <?php if((int)$term->parent): ?>
+          <?php $parent_term = get_term_by( 'id', $term->parent, 'city' ); ?>
+          <?php echo $parent_term->name; ?>: <?php single_term_title(); ?>
+        <?php else: ?>
+          <?php single_term_title(); ?>
+        <?php endif; ?>
+      </div>
+      <div class="flex items-center gap-x-4 mb-4">
+        <?php if((int)$term->parent) {
+          $parent_term = get_term( $term->parent, $taxonomyName );
+          $parent_id = $parent_term->term_id; 
+        } else {
+          $parent_id = get_queried_object_id();
+        }
+        $child_terms = get_terms($taxonomyName, array('parent' => $parent_id, 'hide_empty' => false ));
+        foreach ( $child_terms as $child ): ?>
+          <div class="relative bg-blue-100 dark:bg-gray-300 text-black dark:text-gray-600 hover:bg-blue-200 hover:dark:bg-gray-400 hover:dark:text-gray-800 rounded px-6 py-3 mb-2">
+            <a href="<?php echo get_term_link( $child ); ?>" class="absolute-link"></a>
+            <div>✅ <span class=""><?php echo $child->name ?></span></div>
+          </div>
+        <?php endforeach; ?>
+      </div>
       <?php 
         $current_page = !empty( $_GET['page'] ) ? $_GET['page'] : 1;
         $query = new WP_Query( array( 
