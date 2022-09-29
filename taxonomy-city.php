@@ -24,7 +24,7 @@ $term = get_term_by('slug', get_query_var('term'), $taxonomyName);
           <?php single_term_title(); ?>
         <?php endif; ?>
       </div>
-      <div class="flex items-center gap-x-4 mb-4">
+      <div class="flex items-center flex-wrap gap-x-4 mb-4">
         <?php if((int)$term->parent) {
           $parent_term = get_term( $term->parent, $taxonomyName );
           $parent_id = $parent_term->term_id; 
