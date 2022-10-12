@@ -11,7 +11,7 @@
         </div>
         <div>
           <a href="https://tarakan.org.ua/">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/tarakan.jpg" alt="">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tarakan.jpg" width="20">
           </a>
         </div>
       </div>
