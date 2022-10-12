@@ -3,10 +3,26 @@
 <head>
   <?php 
     $current_title = wp_get_document_title();
+    $current_year = date("Y");
+    if ( is_singular( 'hotels' ) ) {
+      //Название отеля
+      $place_title = get_the_title();
+      //Город
+      $current_cities = wp_get_post_terms(  get_the_ID() , 'city', array( 'parent' => 0 ) );
+      foreach (array_slice($current_cities, 0,1) as $city) {
+        if ($city) {
+          $current_city = $city->name;
+        }	
+      } 
+      $after_title = 'Отзывы, контакты, телефоны';
+      
+      $current_title = $place_title . ' (' . $current_city . ') - ' . $after_title;
+      $current_description = $place_title . '. Реальные отзывы на сайте Priazovka.com. Актуальные цены в '. $current_year .' году. Вся информация здесь.';
+    }
     if (is_tax( 'city' )) {
       $tax_title = single_term_title( "", false );
       $paged = (get_query_var('page')) ? get_query_var('page') : 1;
-      $current_year = date("Y");
+      
       $term_header = get_term_by('slug', get_query_var('term'), 'city');
       if((int)$term_header->parent) {
         // child
