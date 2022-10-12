@@ -21,7 +21,7 @@ $term = get_term_by('slug', get_query_var('term'), $taxonomyName);
           <?php $parent_term = get_term_by( 'id', $term->parent, 'city' ); ?>
           <?php echo $parent_term->name; ?>: <?php single_term_title(); ?>
         <?php else: ?>
-          <?php single_term_title(); ?>
+          <?php single_term_title(); ?>: <?php _e("снять жилье", "treba-wp"); ?>
         <?php endif; ?>
       </div>
       <div class="flex items-center flex-wrap gap-x-4 mb-4">
