@@ -6,8 +6,13 @@
           <a href="<?php echo get_home_url(); ?>" class="absolute-link"></a>
           <span class="text-red-500 font-extrabold">П</span>риазовская <span class="pl-2 text-red-500 font-extrabold"> П</span>равда
         </div>
-        <div class="w-full xl:w-9/12">
+        <div class="w-full xl:w-9/12 mb-4">
           <div class="opacity-75"><?php _e("Только правда, слухи и субъективное мнение", "treba-wp"); ?></div>
+        </div>
+        <div>
+          <a href="https://tarakan.org.ua/">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/tarakan.jpg" alt="">
+          </a>
         </div>
       </div>
       <div class="w-full xl:w-1/4 xl:px-4 mb-6 xl:mb-0">
