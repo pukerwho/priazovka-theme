@@ -16,7 +16,7 @@
       } 
       $after_title = 'Отзывы, контакты, телефоны';
       
-      $current_title = $place_title . ' (' . $current_city . ') - ' . $after_title;
+      $current_title = $place_title . ' - ' . $after_title;
       $current_description = $place_title . '. Реальные отзывы на сайте Priazovka.com. Актуальные цены в '. $current_year .' году. Вся информация здесь.';
     }
     if (is_tax( 'city' )) {
