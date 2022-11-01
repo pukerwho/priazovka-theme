@@ -3,7 +3,7 @@
   <div class="mr-3">
     🏠
   </div>
-  <div class="opacity-75 font-medium">Все</div>
+  <div class="opacity-75 font-medium"><?php _e("Все", "treba-wp"); ?></div>
 </div>
 <?php
 $categories = get_terms( array( 
@@ -21,3 +21,11 @@ foreach ($categories as $category){ ?>
   <div class="opacity-75 font-medium"><?php echo $category->name; ?></div>
 </div>
 <?php } ?>
+
+<?php if (function_exists('pll_the_languages')): ?>
+<div class="lang flex lg:hidden items-center border-t pt-4 mt-4 -mx-2">
+  <?php
+    pll_the_languages(); 
+  ?>
+</div>
+<?php endif; ?>

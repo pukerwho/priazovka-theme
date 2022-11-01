@@ -73,7 +73,7 @@
         <div class="flex justify-between items-center">
           <div class="flex items-center text-xl relative">
             <a href="<?php echo get_home_url(); ?>" class="absolute-link"></a>
-            <span class="text-red-500 font-extrabold">П</span>риазовская <span class="pl-2 text-red-500 font-extrabold"> П</span>равда
+            <span class="text-red-500 font-extrabold">П</span><?php _e("риазовская", "treba-wp"); ?> <span class="pl-2 text-red-500 font-extrabold"> П</span>равда
           </div>
           <div class="hidden xl:block mainmenu">
             <?php wp_nav_menu([
@@ -95,12 +95,19 @@
                 </svg>
               </div>
             </div>
-            <div class="hidden xl:flex"><a href="<?php echo get_page_url('page-add'); ?>" class="bg-red-400 hover:bg-red-500 text-white font-medium rounded-lg px-6 py-2"><?php _e("Додати", "treba-wp"); ?> +</a></div>
+            <div class="hidden xl:flex"><a href="<?php echo get_page_url('page-add'); ?>" class="bg-red-400 hover:bg-red-500 text-white font-medium rounded-lg px-6 py-2"><?php _e("Добавить", "treba-wp"); ?> +</a></div>
             <div class="xl:hidden text-blue-500 cursor-pointer modal-js" data-modal="menu">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
               </svg>
             </div>
+            <?php if (function_exists('pll_the_languages')): ?>
+            <div class="lang hidden lg:flex items-center border-l border-gray-400 pl-4 ml-4">
+              <?php
+                pll_the_languages(); 
+              ?>
+            </div>
+            <?php endif; ?>
           </div>
           
         </div>

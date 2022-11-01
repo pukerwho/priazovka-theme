@@ -4,7 +4,7 @@
       <div class="w-full xl:w-1/2 xl:px-4 mb-6 xl:mb-0">
         <div class="flex items-center text-xl relative mb-4">
           <a href="<?php echo get_home_url(); ?>" class="absolute-link"></a>
-          <span class="text-red-500 font-extrabold">П</span>риазовская <span class="pl-2 text-red-500 font-extrabold"> П</span>равда
+          <span class="text-red-500 font-extrabold">П</span><?php _e("риазовская", "treba-wp"); ?> <span class="pl-2 text-red-500 font-extrabold"> П</span>равда
         </div>
         <div class="w-full xl:w-9/12 mb-4">
           <div class="opacity-75"><?php _e("Только правда, слухи и субъективное мнение", "treba-wp"); ?></div>
@@ -37,7 +37,7 @@
       <div class="flex items-center justify-between mb-12">
         <div class="flex items-center text-xl relative mb-4">
           <a href="<?php echo get_home_url(); ?>" class="absolute-link"></a>
-          <span class="text-red-500 font-extrabold">П</span>риазовская <span class="pl-2 text-red-500 font-extrabold"> П</span>равда
+          <span class="text-red-500 font-extrabold">П</span><?php _e("риазовская", "treba-wp"); ?> <span class="pl-2 text-red-500 font-extrabold"> П</span>равда
         </div>
         <div class="text-white text-lg modal-close-js">
           ✖️

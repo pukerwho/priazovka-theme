@@ -1,4 +1,4 @@
-<div class="text-lg font-medium opacity-75 mb-4">⛱️ Курорты</div>
+<div class="text-lg font-medium opacity-75 mb-4">⛱️ <?php _e("Курорты", "treba-wp"); ?></div>
 <div class="border-b pb-5 mb-5">
   <?php
   $cities = get_terms( array( 

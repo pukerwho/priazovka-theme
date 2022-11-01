@@ -81,3 +81,8 @@ body {
   -webkit-transform: translateY(-50%) translateX(-100%);
   transform: translateY(-50%) translateX(-100%);
 }
+
+.toptop::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}

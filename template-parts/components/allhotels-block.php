@@ -1,4 +1,4 @@
-<div class="text-lg font-medium opacity-75 mb-4">🏠 Отели</div>
+<div class="text-lg font-medium opacity-75 mb-4">🏠 <?php _e("Отели", "treba-wp"); ?></div>
 <?php 
   $new_posts = new WP_Query( array( 
     'post_type' => 'hotels', 

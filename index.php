@@ -10,8 +10,12 @@
       <!-- end all categories -->
     </div>
     <div class="w-full xl:w-8/12 xl:px-3 mb-6 xl:mb-0">
+      <div class="mb-8">
+        <div class="italic opacity-75 mb-2"><?php _e("Обновлено", "treba-wp"); ?>: <?php echo get_the_date("d.m.Y"); ?></div>
+        <?php echo get_template_part('template-parts/components/toptop-block'); ?>
+      </div>
       <div>
-        <div class="text-2xl xl:text-3xl font-medium mb-4">⚡ ТОП новости:</div>
+        <div class="text-2xl xl:text-3xl font-medium mb-4">⚡ <?php _e("ТОП новости", "treba-wp"); ?>:</div>
         <div class="mb-8">
           <?php 
             $top_posts = new WP_Query( array( 
@@ -34,7 +38,7 @@
         </div>
       </div>
       <div>
-        <div class="text-2xl xl:text-3xl font-medium mb-4">📝 Новые записи</div>
+        <div class="text-2xl xl:text-3xl font-medium mb-4">📝 <?php _e("Новые записи", "treba-wp"); ?></div>
         <div>
           <?php 
             $new_posts = new WP_Query( array( 

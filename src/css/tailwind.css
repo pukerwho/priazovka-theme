@@ -97,6 +97,16 @@ body {
   @apply mb-0;
 }
 
+.lang .lang-item {
+  @apply text-sm list-none opacity-60 hover:opacity-100;
+}
+.lang .lang-item:first-of-type {
+  @apply mr-4;
+}
+.lang .lang-item.current-lang {
+  @apply opacity-100 font-semibold;
+}
+
 .treba-links a {
   @apply block text-sm mb-1;
 }

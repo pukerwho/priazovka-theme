@@ -8,7 +8,7 @@ function crb_post_theme_options() {
 	Container::make( 'post_meta', 'More' )
     ->where( 'post_type', '=', 'post' )
     ->add_fields( array(
-      // Field::make( 'text', 'crb_post_timetoread', 'Time to read'),
+      Field::make( 'checkbox', 'crb_post_top', 'TOP-TOP?' ),
   ) );
   Container::make( 'post_meta', 'More' )
     ->where( 'post_type', '=', 'hotels' )

@@ -65,7 +65,7 @@
               <ul class="flex items-center flex-wrap -mr-4">
                 <li itemprop='itemListElement' itemscope itemtype='https://schema.org/ListItem' class="breadcrumbs_item px-4 pl-8">
                   <a itemprop="item" href="<?php echo home_url(); ?>" class="text-indigo-400 dark:text-indigo-200">
-                    <span itemprop="name"><?php _e( 'Головна', 'treba-wp' ); ?></span>
+                    <span itemprop="name"><?php _e( 'Главная', 'treba-wp' ); ?></span>
                   </a>                        
                   <meta itemprop="position" content="1">
                 </li>
