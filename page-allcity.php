@@ -20,6 +20,7 @@ Template Name: ВСЕ ГОРОДА
         <?php
         $cities = get_terms( array( 
           'taxonomy' => 'city',
+          'parent' => 0,
           'orderby' => 'count'
         ) );
         foreach ($cities as $city){ ?>
