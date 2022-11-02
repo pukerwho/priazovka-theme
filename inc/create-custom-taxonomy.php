@@ -21,6 +21,11 @@ function register_custom_taxonomy() {
     'query_var' => true,
     'has_archive' => true,
     'sort' => true,
+    'rewrite' => array(
+      'slug' => 'city',
+      'with_front'    => true,
+      'hierarchical' => true,
+    ),
   );
 
   register_taxonomy( 'city', array( 'hotels' ), $product_category_args );
