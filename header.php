@@ -4,6 +4,7 @@
   <?php 
     $current_title = wp_get_document_title();
     $current_year = date("Y");
+
     if ( is_singular( 'hotels' ) ) {
       //Название отеля
       $place_title = get_the_title();
@@ -19,37 +20,48 @@
       $current_title = $place_title . ' - ' . $after_title;
       $current_description = $place_title . '. Реальные отзывы на сайте Priazovka.com. Актуальные цены в '. $current_year .' году. Вся информация здесь.';
     }
+
     if (is_tax( 'city' )) {
       $tax_title = single_term_title( "", false );
+      $tax_id = get_queried_object_id();
       $paged = (get_query_var('page')) ? get_query_var('page') : 1;
       
       $term_header = get_term_by('slug', get_query_var('term'), 'city');
-      if((int)$term_header->parent) {
-        // child
-        $parent_term = get_term_by( 'id', $term_header->parent, 'city' );  
-        $parent_name = $parent_term->name; 
 
-        $help_title_text = ': снять жилье, цена на '. $current_year .' год';
-        $help_description_text = '. Отзывы, комментарии, фото. Большой каталог на сайте Priazovka.com! Базы отдыха, пансионаты, отели.';
-        $current_page = '. Страница №' . $paged;
-
-        $current_title = $parent_name . ' (' . $tax_title  . ')' . $help_title_text;
-        if ($paged > 1) {
-          $current_title = $parent_name . ' (' . $tax_title . ')' . $help_title_text . '' . $current_page;
-        }
-        $current_description = $parent_name . ' (' . $tax_title  . ')' . $help_description_text;
+      if ($paged > 1) {
+        $current_page = ' ᐈ №' . $paged;
+        $get_seo_title = carbon_get_term_meta($tax_id, 'crb_category_title');
+        $current_title = $get_seo_title . $current_page;
       } else {
-        // parent
-        $help_title_text = 'отдых в '. $current_year .', цены на жилье';
-        $help_description_text = 'снять жилье. Базы отдыха, отели, пансионаты. Цены на жилье в '. $current_year .'. Реальные отзывы на сайте Priazovka.com';
-        $current_page = '. Страница №' . $paged;
+        $current_title = carbon_get_term_meta($tax_id, 'crb_category_title');
+      }
 
-        $current_title = $tax_title . ': ' . $help_title_text;
-        if ($paged > 1) {
-          $current_title = $tax_title . ': ' . $help_title_text . '' . $current_page;
-        }
-        $current_description = $tax_title . ': ' . $help_description_text;
-      }     
+      // if((int)$term_header->parent) {
+      //   // child
+      //   $parent_term = get_term_by( 'id', $term_header->parent, 'city' );  
+      //   $parent_name = $parent_term->name; 
+
+      //   $help_title_text = ': снять жилье, цена на '. $current_year .' год';
+      //   $help_description_text = '. Отзывы, комментарии, фото. Большой каталог на сайте Priazovka.com! Базы отдыха, пансионаты, отели.';
+      //   $current_page = '. Страница №' . $paged;
+
+      //   $current_title = $parent_name . ' (' . $tax_title  . ')' . $help_title_text;
+      //   if ($paged > 1) {
+      //     $current_title = $parent_name . ' (' . $tax_title . ')' . $help_title_text . '' . $current_page;
+      //   }
+      //   $current_description = $parent_name . ' (' . $tax_title  . ')' . $help_description_text;
+      // } else {
+      //   // parent
+      //   $help_title_text = 'отдых в '. $current_year .', цены на жилье';
+      //   $help_description_text = 'снять жилье. Базы отдыха, отели, пансионаты. Цены на жилье в '. $current_year .'. Реальные отзывы на сайте Priazovka.com';
+      //   $current_page = '. Страница №' . $paged;
+
+      //   $current_title = $tax_title . ': ' . $help_title_text;
+      //   if ($paged > 1) {
+      //     $current_title = $tax_title . ': ' . $help_title_text . '' . $current_page;
+      //   }
+      //   $current_description = $tax_title . ': ' . $help_description_text;
+      // }     
     }
   ?>
   <title><?php echo $current_title; ?></title>

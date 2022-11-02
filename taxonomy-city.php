@@ -17,12 +17,17 @@ $term = get_term_by('slug', get_query_var('term'), $taxonomyName);
     </div>
     <div class="w-full xl:w-8/12 xl:px-3 mb-6 xl:mb-0">
       <div class="text-2xl xl:text-3xl mb-4">
-        <?php if((int)$term->parent): ?>
-          <?php $parent_term = get_term_by( 'id', $term->parent, 'city' ); ?>
-          <?php echo $parent_term->name; ?>: <?php single_term_title(); ?>
+        <?php if (carbon_get_term_meta($current_cat_id, 'crb_category_heading')): ?>
+          <?php echo carbon_get_term_meta($current_cat_id, 'crb_category_heading'); ?>
         <?php else: ?>
-          <?php single_term_title(); ?>: <?php _e("снять жилье", "treba-wp"); ?>
+          <?php if((int)$term->parent): ?>
+            <?php $parent_term = get_term_by( 'id', $term->parent, 'city' ); ?>
+            <?php echo $parent_term->name; ?>: <?php single_term_title(); ?>
+          <?php else: ?>
+            <?php single_term_title(); ?>: <?php _e("снять жилье", "treba-wp"); ?>
+          <?php endif; ?>
         <?php endif; ?>
+        
       </div>
       <div class="flex items-center flex-wrap gap-x-4 mb-4">
         <?php if((int)$term->parent) {
