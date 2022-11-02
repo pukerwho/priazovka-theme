@@ -7,6 +7,7 @@ add_action( 'carbon_fields_register_fields', 'crb_term_options' );
 function crb_term_options() {
   Container::make( 'term_meta', __( 'Term Options', 'crb' ) )
   ->add_fields( array(
+    Field::make( 'text', 'crb_category_heading', 'h1' ),
     Field::make( 'text', 'crb_category_title', 'Title' ),
     Field::make( 'text', 'crb_category_description', 'Description' ),
     Field::make( 'textarea', 'crb_category_keywords', 'Keywords' ),
