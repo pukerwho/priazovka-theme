@@ -36,6 +36,11 @@
         $current_title = carbon_get_term_meta($tax_id, 'crb_category_title');
       }
 
+      if (carbon_get_term_meta($tax_id, 'crb_category_description')) {
+        $current_description = carbon_get_term_meta($tax_id, 'crb_category_description');
+      } 
+      
+
       // if((int)$term_header->parent) {
       //   // child
       //   $parent_term = get_term_by( 'id', $term_header->parent, 'city' );  
