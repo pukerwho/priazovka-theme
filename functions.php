@@ -176,3 +176,39 @@ function get_max_price($post_id) {
     return $hotel_max_price;
   }
 }
+
+function get_city_min_price($query) {
+  $posts = $query->posts;
+  $min_value_array = [];
+  foreach($posts as $post) {
+    $post_id = $post->ID;
+    $hotel_min_price = get_post_meta( $post_id, 'hotel_min_price', true );
+    $hotel_min_price = (int)$hotel_min_price;
+    array_push($min_value_array, $hotel_min_price);
+  }
+  return min($min_value_array);
+}
+
+function get_city_max_price($query) {
+  $posts = $query->posts;
+  $max_value_array = [];
+  foreach($posts as $post) {
+    $post_id = $post->ID;
+    $hotel_max_price = get_post_meta( $post_id, 'hotel_max_price', true );
+    $hotel_max_price = (int)$hotel_max_price;
+    array_push($max_value_array, $hotel_max_price);
+  }
+  return max($max_value_array);
+}
+
+function get_city_rating($term_id) {
+  if ( metadata_exists( 'term', $term_id, 'city_rating' ) ) {
+    $city_rating = get_term_meta( $term_id, 'city_rating', true );
+    return $city_rating;
+  } else {
+    $rand_rating = mt_rand(1, 9);
+    add_term_meta( $term_id, 'city_rating', $rand_rating, true );
+    $city_rating = get_term_meta( $term_id, 'city_rating', true );
+    return $city_rating;
+  }
+}

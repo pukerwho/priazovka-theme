@@ -2,6 +2,24 @@
 $current_cat_id = get_queried_object_id();
 $taxonomyName = "city";
 $term = get_term_by('slug', get_query_var('term'), $taxonomyName);
+
+$current_page = !empty( $_GET['page'] ) ? $_GET['page'] : 1;
+$query = new WP_Query( array( 
+  'post_type' => 'hotels', 
+  'posts_per_page' => 20,
+  'order'    => 'DESC',
+  'paged' => $current_page,
+  'tax_query' => array(
+    array(
+      'taxonomy' => 'city',
+      'terms' => $current_cat_id,
+      'field' => 'term_id',
+      'include_children' => true,
+      'operator' => 'IN'
+    )
+  ),
+) );
+
 ?>
 
 <?php get_header(); ?>
@@ -29,6 +47,7 @@ $term = get_term_by('slug', get_query_var('term'), $taxonomyName);
         <?php endif; ?>
         
       </div>
+      <div class="text-lg italic opacity-75 mb-2"><?php _e("Категории", "treba-wp"); ?>:</div>
       <div class="flex items-center flex-wrap gap-x-4 mb-4">
         <?php if((int)$term->parent) {
           $parent_term = get_term( $term->parent, $taxonomyName );
@@ -44,30 +63,39 @@ $term = get_term_by('slug', get_query_var('term'), $taxonomyName);
           </div>
         <?php endforeach; ?>
       </div>
-      <?php 
-        $current_page = !empty( $_GET['page'] ) ? $_GET['page'] : 1;
-        $query = new WP_Query( array( 
-          'post_type' => 'hotels', 
-          'posts_per_page' => 20,
-          'order'    => 'DESC',
-          'paged' => $current_page,
-          'tax_query' => array(
-            array(
-              'taxonomy' => 'city',
-              'terms' => $current_cat_id,
-              'field' => 'term_id',
-              'include_children' => true,
-              'operator' => 'IN'
-            )
-          ),
-        ) );
-      if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
+      <table class="w-full border bg-gray-100 table-auto mb-6">
+        <tbody>
+          <tr class="border-b border-gray-300">
+            <td class="font-semibold whitespace-nowrap px-2 py-3">🏠 <?php _e("Количество предложений", "treba-wp"); ?></td>
+            <td class="whitespace-nowrap px-2 py-3"><?php echo $query->post_count; ?></td>
+          </tr>
+          <tr class="border-b border-gray-300">
+            <td class="font-semibold whitespace-nowrap px-2 py-3">🏦 <?php _e("Самый дорогой вариант", "treba-wp"); ?></td>
+            <td class="whitespace-nowrap px-2 py-3">
+              <?php echo get_city_max_price($query); ?>00 
+              грн.
+            </td>
+          </tr>
+          <tr class="border-b border-gray-300">
+            <td class="font-semibold whitespace-nowrap px-2 py-3">💸 <?php _e("Самый дешевый вариант", "treba-wp"); ?></td>
+            <td class="whitespace-nowrap px-2 py-3">
+              <?php echo get_city_min_price($query); ?>00
+              грн.
+            </td>
+          </tr>
+          <tr class="border-b border-gray-300">
+            <td class="font-semibold whitespace-nowrap px-2 py-3">🕒 <?php _e("Информация обновлена", "treba-wp"); ?></td>
+            <td class="whitespace-nowrap px-2 py-3"><?php echo date('d.m.Y',strtotime("-1 days")); ?></td>
+          </tr>
+        </tbody>
+      </table>
+      <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
       <div class="mb-6">
         <?php get_template_part('template-parts/hotel-item'); ?>
       </div>
       <?php endwhile; endif; wp_reset_postdata(); ?>
 
-      <div class="b_pagination text-center">
+      <div class="b_pagination text-center mb-12">
         <?php 
           $big = 9999999991; // уникальное число
           echo paginate_links( array(
@@ -79,6 +107,68 @@ $term = get_term_by('slug', get_query_var('term'), $taxonomyName);
             'prev_text' => (''),
           )); 
         ?>
+      </div>
+
+      <div class="content">
+        <h2>
+          <?php _e("Дополнительная информация", "treba-wp"); ?>
+        </h2>
+        <table class="w-full table-auto">
+          <tbody>
+            <tr class="border-b border-gray-300">
+              <td class="font-semibold whitespace-nowrap px-2 py-3">👨‍👩‍👦 <?php _e("Населення", "treba-wp"); ?></td>
+              <td class="whitespace-nowrap px-2 py-3"><?php echo carbon_get_term_meta($current_cat_id, 'crb_category_count_people'); ?></td>
+            </tr>
+            <tr class="border-b border-gray-300">
+              <td class="font-semibold whitespace-nowrap px-2 py-3">📍 <?php _e("Область", "treba-wp"); ?></td>
+              <td class="whitespace-nowrap px-2 py-3"><?php echo carbon_get_term_meta($current_cat_id, 'crb_category_oblast'); ?></td>
+            </tr>
+            <tr class="border-b border-gray-300">
+              <td class="font-semibold whitespace-nowrap px-2 py-3">⭐ <?php _e("Рейтинг", "treba-wp"); ?></td>
+              <td class="whitespace-nowrap px-2 py-3">4.<?php echo get_city_rating($current_cat_id); ?></td>
+            </tr>
+          </tbody>
+        </table>
+        <h2>FAQ</h2>
+        <div itemscope itemtype="https://schema.org/FAQPage">
+          <?php $hotels = $query->posts; ?>
+          <dl itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mb-4">
+            <dt itemprop="name"><h3>❯ <?php _e("Порекомендуйте, где лучше всего снять жилье?", "treba-wp"); ?></h3></dt>
+            <dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">🏘️ 
+              <?php _e("Предлагаем обратить внимание на эти варианты", "treba-wp"); ?>:
+              <?php if ($hotels[1]->ID): ?>
+              <a href="<?php echo get_the_permalink($hotels[1]->ID); ?>"><?php echo $hotels[1]->post_title; ?></a>,
+              <?php endif; ?>
+              <a href="<?php echo get_the_permalink($hotels[0]->ID); ?>"><?php echo $hotels[0]->post_title; ?></a>
+            </span></dd>
+          </dl>
+          <dl itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mb-4">
+            <dt itemprop="name"><h3>❯ <?php _e("Сколько стоит снять жилье?", "treba-wp"); ?></h3></dt>
+            <dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">💰 <?php _e("Цены могут меняться, в зависимости от сезона. На данный момент минимальная цена - ", "treba-wp"); ?><?php echo get_city_min_price($query); ?>00 грн., <?php _e("а максимальная - ", "treba-wp"); ?> <?php echo get_city_max_price($query); ?>00 грн.</span></dd>
+          </dl>
+          <dl itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mb-4">
+            <dt itemprop="name"><h3>❯ <?php _e("Какое жилье сейчас пользуется спросом?", "treba-wp"); ?></h3></dt>
+            <dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <span itemprop="text">🏡 <?php _e("Популярные варианты", "treba-wp"); ?>:
+                <?php foreach (array_slice($hotels, 0,3) as $hotel): ?>
+                <a href="<?php echo get_the_permalink($hotel->ID); ?>"><?php echo $hotel->post_title; ?>;</a>
+                <?php endforeach; ?>
+              </span>
+            </dd>
+          </dl>
+          <dl itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mb-4">
+            <dt itemprop="name"><h3>❯ <?php _e("Интересует недорогое жилье - можете порекомендовать?", "treba-wp"); ?></h3></dt>
+            <dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <span itemprop="text">🛏️ <?php _e("Можем порекомендовать следующие варианты", "treba-wp"); ?>: 
+              <?php 
+                shuffle($hotels);
+                foreach (array_slice($hotels, 0,3) as $hotel): ?>
+                <a href="<?php echo get_the_permalink($hotel->ID); ?>"><?php echo $hotel->post_title; ?>;</a>
+              <?php endforeach; ?>
+              </span>
+            </dd>
+          </dl>
+        </div>
       </div>
     </div>
     <div class="w-full xl:w-2/12 xl:px-3">
