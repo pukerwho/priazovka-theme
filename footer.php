@@ -13,6 +13,11 @@
           <a href="https://tarakan.org.ua/">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tarakan.jpg" width="20">
           </a>
+          <?php if (is_home()): ?>
+            <a href="https://webgolovolomki.com/" class="ml-2">
+              <img src="https://priazovka.com/wp-content/uploads/web-g.jpg" width="20">
+            </a>
+          <?php endif; ?>
         </div>
       </div>
       <div class="w-full xl:w-1/4 xl:px-4 mb-6 xl:mb-0">
