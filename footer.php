@@ -1,3 +1,4 @@
+</div>
 <footer class="bg-gray-700 text-gray-200 py-12">
   <div class="container">
     <div class="flex flex-wrap flex-col xl:flex-row xl:-mx-4">
@@ -9,12 +10,12 @@
         <div class="w-full xl:w-9/12 mb-4">
           <div class="opacity-75"><?php _e("Только правда, слухи и субъективное мнение", "treba-wp"); ?></div>
         </div>
-        <div>
+        <div class="flex items-center">
           <a href="https://tarakan.org.ua/">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tarakan.jpg" width="20">
           </a>
           <?php if (is_home()): ?>
-            <a href="https://webgolovolomki.com/" class="ml-2">
+            <a href="https://webgolovolomki.com/" class="pl-2">
               <img src="https://priazovka.com/wp-content/uploads/web-g.jpg" width="20">
             </a>
           <?php endif; ?>
@@ -30,7 +31,21 @@
       </div>
       <div class="w-full xl:w-1/4 xl:px-4">
         <div class="text-xl font-bold mb-2"><?php _e("Для связи", "treba-wp"); ?></div>
-        <div>✉️ hello@priazovka.com</div>
+        <div class="mb-4">✉️ hello@priazovka.com</div>
+        <div class="flex items-center -mx-2">
+          <div class="px-2">
+            <div class="relative">
+              <a href="http://facebook.com/priazovskayapravda" class="absolute-link" target="_blank"></a>
+              <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/facebook-logo.svg" width="20">
+            </div>
+          </div>
+          <div class="px-2">
+            <div class="relative">
+              <a href="https://t.me/joinchat/ULWsxKhqmr85YzQ6" class="absolute-link" target="_blank"></a>
+              <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/telegram-logo.svg" width="20">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

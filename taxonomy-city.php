@@ -63,27 +63,27 @@ $query = new WP_Query( array(
           </div>
         <?php endforeach; ?>
       </div>
-      <table class="w-full border bg-gray-100 table-auto mb-6">
+      <table class="w-full border dark:border-gray-500 bg-gray-100 dark:bg-neutral-800 table-auto mb-6">
         <tbody>
-          <tr class="border-b border-gray-300">
+          <tr class="border-b border-gray-300 dark:border-gray-500">
             <td class="font-semibold whitespace-nowrap px-2 py-3">🏠 <?php _e("Количество предложений", "treba-wp"); ?></td>
             <td class="whitespace-nowrap px-2 py-3"><?php echo $query->post_count; ?></td>
           </tr>
-          <tr class="border-b border-gray-300">
+          <tr class="border-b border-gray-300 dark:border-gray-500">
             <td class="font-semibold whitespace-nowrap px-2 py-3">🏦 <?php _e("Самый дорогой вариант", "treba-wp"); ?></td>
             <td class="whitespace-nowrap px-2 py-3">
               <?php echo get_city_max_price($query); ?>00 
               грн.
             </td>
           </tr>
-          <tr class="border-b border-gray-300">
+          <tr class="border-b border-gray-300 dark:border-gray-500">
             <td class="font-semibold whitespace-nowrap px-2 py-3">💸 <?php _e("Самый дешевый вариант", "treba-wp"); ?></td>
             <td class="whitespace-nowrap px-2 py-3">
               <?php echo get_city_min_price($query); ?>00
               грн.
             </td>
           </tr>
-          <tr class="border-b border-gray-300">
+          <tr class="border-b border-gray-300 dark:border-gray-500">
             <td class="font-semibold whitespace-nowrap px-2 py-3">🕒 <?php _e("Информация обновлена", "treba-wp"); ?></td>
             <td class="whitespace-nowrap px-2 py-3"><?php echo date('d.m.Y',strtotime("-1 days")); ?></td>
           </tr>

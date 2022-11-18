@@ -1,4 +1,4 @@
-<div class="border shadow-lg rounded-lg px-4 xl:px-6 py-3 xl:py-4 mb-6">
+<div class="border dark:border-gray-500 shadow-lg rounded-lg px-4 xl:px-6 py-3 xl:py-4 mb-6">
   <div class="mb-2">
     <?php 
       $city_terms = wp_get_post_terms(  get_the_ID() , 'city', array( 'parent' => 0 ) );

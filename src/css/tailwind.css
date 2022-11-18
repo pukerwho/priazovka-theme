@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 body {
+  @apply bg-zinc-800/90 dark:bg-zinc-900 lg:px-4 lg:pb-4;
+}
+.wrap {
   @apply bg-white dark:bg-zinc-800 text-gray-800 dark:text-gray-200;
 }
 .absolute-link {
@@ -19,7 +22,7 @@ body {
 }
 
 .header {
-  @apply w-full py-6 z-10;
+  @apply w-full z-10;
 }
 .header .sub-menu {
   @apply bg-gradient-to-r from-main-gray to-main-dark border-2 border-main-gray hover:text-white rounded-xl px-6 py-4;
