@@ -226,7 +226,7 @@ function get_terms_links_array($hotel_id) {
     $random_array = [];
     $links_iterator = 0;
 
-    while ($links_iterator < 5) {
+    while ($links_iterator < 2) {
       $get_random_number = array_rand($get_terms);
       if (!in_array($get_random_number, $random_array)) {
         array_push($random_array, $get_random_number); 
