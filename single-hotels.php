@@ -482,6 +482,13 @@
           <div class="bg-neutral-300 text-sm font-medium text-center rounded-t-lg opacity-75 px-1 py-3">🔍 <?php _e("Популярные запросы", "treba-wp"); ?>:</div>
           <div class="text-sm rounded-b-lg px-2 py-4 bg-neutral-100">
             
+            <?php 
+              $terms_links = get_terms_links_array($currentId);
+              // var_dump($terms_links);
+              foreach ($terms_links as $link):
+            ?>
+              <div>🔸 <?php echo $link; ?></div>
+            <?php endforeach; ?>
           </div>
         <?php endif; ?>
       </div>

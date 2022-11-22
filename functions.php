@@ -226,7 +226,7 @@ function get_terms_links_array($hotel_id) {
     $random_array = [];
     $links_iterator = 0;
 
-    while ($links_iterator < 2) {
+    while ($links_iterator < 5) {
       $get_random_number = array_rand($get_terms);
       if (!in_array($get_random_number, $random_array)) {
         array_push($random_array, $get_random_number); 
@@ -251,7 +251,7 @@ function get_terms_links_array($hotel_id) {
       };
     }
     // $keywords_array = json_encode($keywords_array);
-    add_post_meta( $hotel_id, 'hotel_links', $keywords_array);
+    update_post_meta( $hotel_id, 'hotel_links', $keywords_array);
     $hotel_links = get_post_meta( $hotel_id, 'hotel_links', true );
     return $hotel_links;
   }
