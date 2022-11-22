@@ -212,3 +212,47 @@ function get_city_rating($term_id) {
     return $city_rating;
   }
 }
+
+function get_terms_links_array($hotel_id) {
+  if ( metadata_exists( 'post', $hotel_id, 'hotel_links' ) ) {
+    $hotel_links = get_post_meta( $hotel_id, 'hotel_links', true );
+    return $hotel_links;
+  } else {
+    $get_terms = get_terms( array( 
+      'taxonomy' => 'city',
+    ) );
+    $terms_length = count($get_terms);
+    $keywords_array = [];
+    $random_array = [];
+    $links_iterator = 0;
+
+    while ($links_iterator < 5) {
+      $get_random_number = array_rand($get_terms);
+      if (!in_array($get_random_number, $random_array)) {
+        array_push($random_array, $get_random_number); 
+        
+        $get_term_id = $get_terms[$get_random_number]->term_id;
+        $get_term_permalink = get_term_link($get_term_id, 'city');
+        
+        $get_term_keywords = carbon_get_term_meta($get_term_id, 'crb_category_keywords');
+        // has meta
+        if ($get_term_keywords) {
+          $term_keywords_array = explode(",", $get_term_keywords);
+          $get_random_number_keyword = array_rand($term_keywords_array);
+
+          $get_term_keyword = $term_keywords_array[$get_random_number_keyword];
+          $get_term_keyword = trim($get_term_keyword);
+          
+          $full_link = '<a href="' . $get_term_permalink . '">' . $get_term_keyword . '</a>'; 
+          array_push($keywords_array, $full_link); 
+
+          $links_iterator++;
+        } 
+      };
+    }
+    // $keywords_array = json_encode($keywords_array);
+    add_post_meta( $hotel_id, 'hotel_links', $keywords_array);
+    $hotel_links = get_post_meta( $hotel_id, 'hotel_links', true );
+    return $hotel_links;
+  }
+}
