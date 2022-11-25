@@ -9,6 +9,7 @@ function crb_post_theme_options() {
     ->where( 'post_type', '=', 'post' )
     ->add_fields( array(
       Field::make( 'checkbox', 'crb_post_top', 'TOP-TOP?' ),
+      Field::make( 'text', 'crb_post_author', 'Автор' ),
   ) );
   Container::make( 'post_meta', 'More' )
     ->where( 'post_type', '=', 'hotels' )

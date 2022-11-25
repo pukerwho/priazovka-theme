@@ -36,7 +36,14 @@
             <!-- meta -->
             <div class="bg-blue-200 dark:bg-gray-500 text-gray-700  dark:text-gray-200 rounded-lg px-6 py-4 mb-4">
               <div class="mb-2">
-                <div><?php _e("Автор", "treba-wp"); ?>: <?php echo get_the_author(); ?></div>
+                <div><?php _e("Автор", "treba-wp"); ?>: 
+                  <?php if (carbon_get_the_post_meta('crb_post_author')) {
+                    echo carbon_get_the_post_meta('crb_post_author');
+                  } else {
+                    echo get_the_author();
+                  }
+                  ?>
+                </div>
               </div>
               <div class="flex flex-wrap -mx-2">
                 <div class="flex items-center text-sm opacity-75 px-2">
@@ -85,12 +92,18 @@
 
           </article>  
 
-          <div>
+          <div class="mb-10">
             <div class="text-2xl mb-6"><span class="border-b-4 border-red-300 font-bold"><?php _e("Комментарии", "treba-wp"); ?></span></div>
             <div class="content">
               <?php comments_template(); ?>
             </div>
           </div> 
+          <div class="xl:px-3">
+            <h2 class="text-2xl mb-6"><?php _e("ТОП", "treba-wp"); ?></h2>
+            <div>
+              <?php echo get_template_part('template-parts/components/toptop-block'); ?>
+            </div>
+          </div>
         </div>  
       <?php endwhile; endif; wp_reset_postdata(); ?>
     </div>

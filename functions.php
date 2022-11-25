@@ -251,7 +251,7 @@ function get_terms_links_array($hotel_id) {
       };
     }
     // $keywords_array = json_encode($keywords_array);
-    update_post_meta( $hotel_id, 'hotel_links', $keywords_array);
+    add_post_meta( $hotel_id, 'hotel_links', $keywords_array);
     $hotel_links = get_post_meta( $hotel_id, 'hotel_links', true );
     return $hotel_links;
   }

@@ -7,7 +7,7 @@
     ) );
     if ($top_top_posts->have_posts()) : while ($top_top_posts->have_posts()) : $top_top_posts->the_post(); 
   ?>
-    <div class="w-full min-w-[200px] lg:min-w-auto lg:w-1/4 px-2">
+    <div class="w-full min-w-[180px] lg:min-w-auto lg:w-1/4 px-2">
       <div class="relative">
         <a href="<?php the_permalink(); ?>" class="absolute-link"></a>
         <div>
