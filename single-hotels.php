@@ -89,10 +89,10 @@
             <thead class="bg-blue-100 dark:bg-gray-500 text-gray-500 dark:text-gray-200 border border-gray-300 uppercase">
               <tr>
                 <th class="text-left whitespace-nowrap px-2 py-3">
-                  <div class="text-left"><?php _e("Удобство", "tarakan"); ?></div>
+                  <div class="text-left"><?php _e("Удобство", "treba-wp"); ?></div>
                 </th>
                 <th class="text-left whitespace-nowrap px-2 py-3">
-                  <div class="text-left"><?php _e("Наличие", "tarakan"); ?></div>
+                  <div class="text-left"><?php _e("Наличие", "treba-wp"); ?></div>
                 </th>
               </tr>
             </thead>

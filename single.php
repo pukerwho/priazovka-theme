@@ -15,7 +15,7 @@
           $currentId = get_the_ID();
           $countNumber = tutCount($currentId);
         ?>
-        <div class="xl:border xl:shadow-lg xl:rounded-lg xl:p-5" itemscope itemtype="http://schema.org/Article">
+        <div class="xl:border xl:dark:border-gray-500 xl:shadow-lg xl:rounded-lg xl:p-5" itemscope itemtype="http://schema.org/Article">
 
           <article class="mb-8">
 
@@ -29,20 +29,26 @@
               <?php endif; ?>
             </div>
 
-            <div class="content mb-8" itemprop="articleBody">
-              <?php the_content(); ?>
-            </div>
-
             <!-- meta -->
-            <div class="bg-blue-200 dark:bg-gray-500 text-gray-700  dark:text-gray-200 rounded-lg px-6 py-4 mb-4">
+            <div class="border dark:border-gray-500 shadow-lg rounded-lg px-6 py-4 mb-8">
               <div class="mb-2">
-                <div><?php _e("Автор", "treba-wp"); ?>: 
-                  <?php if (carbon_get_the_post_meta('crb_post_author')) {
-                    echo carbon_get_the_post_meta('crb_post_author');
-                  } else {
-                    echo get_the_author();
-                  }
-                  ?>
+                <div><span class="font-medium"><?php _e("Автор", "treba-wp"); ?></span>: 
+                  <?php if (carbon_get_the_post_meta('crb_post_author')): ?>
+                    <span class="italic"><?php echo carbon_get_the_post_meta('crb_post_author'); ?></span>
+                    <div class="flex items-center text-sm">
+                      <!-- instagram -->
+                      <?php if (carbon_get_the_post_meta('crb_post_author_instagram')): ?>
+                        <div class="italic pb-2 pr-3"><a href="<?php echo carbon_get_the_post_meta('crb_post_author_instagram'); ?>" class="text-indigo-500">Instagram</a></div>
+                      <?php endif; ?>
+                      <!-- facebook --> 
+                      <?php if (carbon_get_the_post_meta('crb_post_author_facebook')): ?>
+                        <div class="italic pb-2"><a href="<?php echo carbon_get_the_post_meta('crb_post_author_facebook'); ?>" class="text-indigo-500">Facebook</a></div>
+                      <?php endif; ?>
+                    </div>
+
+                  <?php else: ?>
+                    <?php echo get_the_author(); ?>
+                  <?php endif; ?>
                 </div>
               </div>
               <div class="flex flex-wrap -mx-2">
@@ -66,6 +72,16 @@
               </div>
             </div>
             <!-- end meta -->
+
+            <div class="content mb-8" itemprop="articleBody">
+              <div class="single-subjects mb-5">
+                <div class="text-2xl font-bold mb-3">
+                  <?php _e('Содержание','treba-wp'); ?>:
+                </div>
+                <div class="single-subjects-inner"></div>
+              </div>
+              <?php the_content(); ?>
+            </div>
 
             <!-- Хлебные крошки -->
             <div class="breadcrumbs text-sm text-gray-800 dark:text-gray-200 mb-6" itemprop="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
