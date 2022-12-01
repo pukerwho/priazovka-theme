@@ -116,7 +116,7 @@ $query = new WP_Query( array(
         <table class="w-full table-auto">
           <tbody>
             <tr class="border-b border-gray-300">
-              <td class="font-semibold whitespace-nowrap px-2 py-3">👨‍👩‍👦 <?php _e("Населення", "treba-wp"); ?></td>
+              <td class="font-semibold whitespace-nowrap px-2 py-3">👨‍👩‍👦 <?php _e("Население", "treba-wp"); ?></td>
               <td class="whitespace-nowrap px-2 py-3"><?php echo carbon_get_term_meta($current_cat_id, 'crb_category_count_people'); ?></td>
             </tr>
             <tr class="border-b border-gray-300">
@@ -144,7 +144,7 @@ $query = new WP_Query( array(
           </dl>
           <dl itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mb-4">
             <dt itemprop="name"><h3>❯ <?php _e("Сколько стоит снять жилье?", "treba-wp"); ?></h3></dt>
-            <dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">💰 <?php _e("Цены могут меняться, в зависимости от сезона. На данный момент минимальная цена - ", "treba-wp"); ?><?php echo get_city_min_price($query); ?>00 грн., <?php _e("а максимальная - ", "treba-wp"); ?> <?php echo get_city_max_price($query); ?>00 грн.</span></dd>
+            <dd itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">💰 <?php _e("Цены могут меняться, в зависимости от сезона. На данный момент минимальная цена", "treba-wp"); ?> - <?php echo get_city_min_price($query); ?>00 грн., <?php _e("а максимальная", "treba-wp"); ?> - <?php echo get_city_max_price($query); ?>00 грн.</span></dd>
           </dl>
           <dl itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="mb-4">
             <dt itemprop="name"><h3>❯ <?php _e("Какое жилье сейчас пользуется спросом?", "treba-wp"); ?></h3></dt>
