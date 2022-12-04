@@ -88,7 +88,10 @@ body {
   @apply list-disc text-gray-800 dark:text-gray-200 ml-4 mb-8;
 }
 .content ol {
-  @apply list-none text-gray-800 dark:text-gray-200 mb-8;
+  @apply list-auto text-gray-800 dark:text-gray-200 mb-8;
+}
+.content ol li {
+  @apply ml-4;
 }
 .content ul li {
   @apply list-disc;
