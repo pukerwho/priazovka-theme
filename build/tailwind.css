@@ -1608,7 +1608,7 @@ body {
 .content ol {
   margin-bottom: 2rem;
   margin-top: 1rem;
-  list-style-type: auto;
+  list-style-type: decimal;
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
 }
