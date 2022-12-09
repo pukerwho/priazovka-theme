@@ -72,10 +72,14 @@
   <title><?php echo $current_title; ?></title>
   <?php if ($current_description): ?>
     <meta name="description" content="<?php echo $current_description; ?>"/>
+    <meta property="og:description" content="<?php echo $current_description; ?>" />
   <?php endif; ?>
 
   <meta property="og:image" content="<?php echo get_the_post_thumbnail_url(); ?>">
   <?php if (is_singular()): ?>
+    <meta property="og:title" content="<?php echo $current_title; ?>" />
+    <?php $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>
+    <meta property="og:url" content="<?php echo $actual_link; ?>" />
     <meta property="og:article:published_time" content="<?php echo get_post_time('Y/n/j'); ?>" />
     <meta property="og:article:article:modified_time" content="<?php echo get_the_modified_time('Y/n/j'); ?>" />
     <?php if (carbon_get_the_post_meta('crb_post_author')): ?>
