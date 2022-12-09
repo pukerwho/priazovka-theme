@@ -83,7 +83,7 @@
       <?php 
         $content_text_for_description = wp_strip_all_tags( get_the_content() );
       ?>
-      <meta property="og:description" content="<?php echo echo mb_strimwidth($content_text_for_description, 0, 150, '...'); ?>" />
+      <meta property="og:description" content="<?php echo mb_strimwidth($content_text_for_description, 0, 150, '...'); ?>" />
     <?php endif; ?>
     <?php $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>
     <meta property="og:url" content="<?php echo $actual_link; ?>" />
