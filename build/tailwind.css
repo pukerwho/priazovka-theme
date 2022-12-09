@@ -1641,6 +1641,10 @@ body {
   margin-bottom: 0px;
 }
 
+.content .wp-block-image {
+  margin-bottom: 1.5rem;
+}
+
 .lang .lang-item {
   list-style-type: none;
   font-size: 0.875rem;
