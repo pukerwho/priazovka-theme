@@ -74,7 +74,9 @@
     <meta name="description" content="<?php echo $current_description; ?>" />
   <?php endif; ?>
 
-  <meta property="og:image" content="<?php echo get_the_post_thumbnail_url(); ?>">
+  <?php if (get_the_post_thumbnail_url()): ?>
+    <meta property="og:image" content="<?php echo get_the_post_thumbnail_url(); ?>">
+  <?php endif; ?>
   <?php if (is_singular()): ?>
     <meta property="og:title" content="<?php echo $current_title; ?>" />
     <?php if ($current_description): ?>
