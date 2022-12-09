@@ -74,6 +74,17 @@
     <meta name="description" content="<?php echo $current_description; ?>"/>
   <?php endif; ?>
 
+  <meta property="og:image" content="<?php echo get_the_post_thumbnail_url(); ?>">
+  <?php if (is_singular()): ?>
+    <meta property="og:article:published_time" content="<?php echo get_post_time('Y/n/j'); ?>" />
+    <meta property="og:article:article:modified_time" content="<?php echo get_the_modified_time('Y/n/j'); ?>" />
+    <?php if (carbon_get_the_post_meta('crb_post_author')): ?>
+      <meta property="og:article:author" content="<?php echo carbon_get_the_post_meta('crb_post_author'); ?>" />
+    <?php else: ?>
+      <meta property="og:article:author" content="<?php echo get_the_author(); ?>" />
+    <?php endif; ?>
+  <?php endif; ?>
+
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#1D1E22" />
