@@ -76,6 +76,8 @@
 
   <?php if (get_the_post_thumbnail_url()): ?>
     <meta property="og:image" content="<?php echo get_the_post_thumbnail_url(); ?>">
+  <?php else: ?>
+    <meta property="og:image" content="https://priazovka.com/wp-content/uploads/cropped-sea-waves-270x270.png">
   <?php endif; ?>
   <?php if (is_singular()): ?>
     <meta property="og:title" content="<?php echo $current_title; ?>" />
