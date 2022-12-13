@@ -1,5 +1,5 @@
 <div class="relative flex items-center hover:text-blue-500 mb-4">
-  <a href="<?php echo get_home_url(); ?>" class="absolute-link"></a>
+  <a href="<?php echo get_page_url('page-blog'); ?>" class="absolute-link"></a>
   <div class="mr-3">
     🏠
   </div>

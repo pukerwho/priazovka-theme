@@ -40,6 +40,38 @@ body {
   }
 }
 
+.theme-pagination {
+  .page-numbers {
+    min-width: 35px;
+    min-height: 35px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid;
+    border-color: rgba(28, 33, 38, 1);
+    border-radius: 0.25rem;
+    &:hover {
+      background-color: rgba(28, 33, 38, 1);
+      color: #ffffff;
+    }
+    &.current {
+      background-color: rgba(28, 33, 38, 1);
+      color: #ffffff;
+    }
+    &.prev {
+      &:before {
+        content: "⬅";
+      }
+    }
+    &.next {
+      &:before {
+        content: "⮕";
+      }
+    }
+  }
+}
+
 .toptop {
   &::-webkit-scrollbar {
     width: 0;

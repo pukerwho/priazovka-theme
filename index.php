@@ -4,7 +4,7 @@
   <div class="flex flex-wrap xl:-mx-3">
     <div class="w-full xl:w-2/12 xl:px-3">
       <!-- all categories -->
-      <div class="hidden xl:block">
+      <div class="hidden xl:block sticky top-4">
         <?php echo get_template_part('template-parts/components/allcategories-block'); ?>
       </div>
       <!-- end all categories -->
@@ -39,7 +39,7 @@
       </div>
       <div>
         <div class="text-2xl xl:text-3xl font-medium mb-4">📝 <?php _e("Новые записи", "treba-wp"); ?></div>
-        <div>
+        <div class="mb-10">
           <?php 
             $new_posts = new WP_Query( array( 
               'post_type' => 'post', 
@@ -51,6 +51,9 @@
               <?php echo get_template_part('template-parts/post-item'); ?>
             </div>
           <?php endwhile; endif; wp_reset_postdata(); ?>
+        </div>
+        <div class="flex justify-center">
+          <a href="<?php echo get_page_url('page-blog'); ?>" class="border border-red-400 bg-transparent hover:bg-red-400 text-gray-600 hover:text-gray-200 text-center font-medium rounded-lg px-6 py-3"><?php _e("Все записи", "treba-wp"); ?></a>
         </div>
       </div>
       

@@ -30,17 +30,19 @@ Template Name: БЛОГ
           <?php echo get_template_part('template-parts/post-item'); ?>
         </div>
       <?php endwhile; endif; wp_reset_postdata(); ?>
-      <?php 
-        $big = 9999999991; // уникальное число
-        echo paginate_links( array(
-          'format'  => 'page/%#%',
-          'total' => $new_posts->max_num_pages,
-          'current' => $current,
-          'prev_next' => true,
-          'next_text' => (''),
-          'prev_text' => (''),
-        )); 
-      ?>
+      <div class="theme-pagination">
+        <?php 
+          $big = 9999999991; // уникальное число
+          echo paginate_links( array(
+            'format'  => 'page/%#%',
+            'total' => $new_posts->max_num_pages,
+            'current' => $current,
+            'prev_next' => true,
+            'next_text' => (''),
+            'prev_text' => (''),
+          )); 
+        ?>
+      </div>
     </div>
     <div class="w-full xl:w-2/12 xl:px-3">
       <div>

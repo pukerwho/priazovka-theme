@@ -119,3 +119,13 @@ body {
 .treba-links a {
   @apply block text-sm mb-1;
 }
+
+.theme-pagination {
+  @apply flex flex-wrap items-center justify-center;
+}
+.theme-pagination .page-numbers {
+  @apply inline-flex items-center justify-center w-10 h-10 border border-primary rounded hover:text-white hover:bg-primary px-3 mx-2 mb-2;
+}
+.theme-pagination .page-numbers.current {
+  @apply bg-white text-gray-700;
+}
