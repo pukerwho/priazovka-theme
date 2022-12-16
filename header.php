@@ -15,10 +15,18 @@
           $current_city = $city->name;
         }	
       } 
-      $after_title = 'Отзывы, контакты, телефоны';
+      if (get_locale() === 'ru_RU') {
+        $after_title = 'Отзывы, контакты, телефоны';
+      } else {
+        $after_title = 'Відгуки, контакти, телефони';
+      }
       
       $current_title = $place_title . ' - ' . $after_title;
-      $current_description = $place_title . '. Реальные отзывы на сайте Priazovka.com. Актуальные цены в '. $current_year .' году. Вся информация здесь.';
+      if (get_locale() === 'ru_RU') {
+        $current_description = $place_title . '. Реальные отзывы на сайте Priazovka.com. Актуальные цены в '. $current_year .' году. Вся информация здесь.';
+      } else {
+        $current_description = $place_title . '. Реальні відгуки на сайті Priazovka.com. Актуальні ціни '. $current_year .' року. Вся інформація тут.';
+      }
     }
 
     if (is_tax( 'city' )) {
