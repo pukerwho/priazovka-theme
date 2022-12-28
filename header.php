@@ -5,6 +5,15 @@
     $current_title = wp_get_document_title();
     $current_year = date("Y");
 
+    if ( is_singular( 'post' ) ) {
+      if (carbon_get_the_post_meta('crb_post_title')) {
+        $current_title = carbon_get_the_post_meta('crb_post_title');
+      }
+      if (carbon_get_the_post_meta('crb_post_title')) {
+        $current_description = carbon_get_the_post_meta('crb_post_description');
+      }
+    }
+
     if ( is_singular( 'hotels' ) ) {
       //Название отеля
       $place_title = get_the_title();
@@ -47,34 +56,7 @@
       if (carbon_get_term_meta($tax_id, 'crb_category_description')) {
         $current_description = carbon_get_term_meta($tax_id, 'crb_category_description');
       } 
-      
-
-      // if((int)$term_header->parent) {
-      //   // child
-      //   $parent_term = get_term_by( 'id', $term_header->parent, 'city' );  
-      //   $parent_name = $parent_term->name; 
-
-      //   $help_title_text = ': снять жилье, цена на '. $current_year .' год';
-      //   $help_description_text = '. Отзывы, комментарии, фото. Большой каталог на сайте Priazovka.com! Базы отдыха, пансионаты, отели.';
-      //   $current_page = '. Страница №' . $paged;
-
-      //   $current_title = $parent_name . ' (' . $tax_title  . ')' . $help_title_text;
-      //   if ($paged > 1) {
-      //     $current_title = $parent_name . ' (' . $tax_title . ')' . $help_title_text . '' . $current_page;
-      //   }
-      //   $current_description = $parent_name . ' (' . $tax_title  . ')' . $help_description_text;
-      // } else {
-      //   // parent
-      //   $help_title_text = 'отдых в '. $current_year .', цены на жилье';
-      //   $help_description_text = 'снять жилье. Базы отдыха, отели, пансионаты. Цены на жилье в '. $current_year .'. Реальные отзывы на сайте Priazovka.com';
-      //   $current_page = '. Страница №' . $paged;
-
-      //   $current_title = $tax_title . ': ' . $help_title_text;
-      //   if ($paged > 1) {
-      //     $current_title = $tax_title . ': ' . $help_title_text . '' . $current_page;
-      //   }
-      //   $current_description = $tax_title . ': ' . $help_description_text;
-      // }     
+          
     }
   ?>
   <title><?php echo $current_title; ?></title>
