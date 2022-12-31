@@ -38,6 +38,7 @@ function get_post_keywords() {
   $posts = get_posts($args);
   shuffle($posts);
   foreach ($posts as $post) {
+    var_dump($post);
     if (count($posts_links_array) < $count_post_in_array) {
       $post_id = $post->ID;
       $post_keywords = get_post_meta($post_id, '_crb_post_keywords', true);
