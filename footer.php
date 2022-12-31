@@ -10,7 +10,11 @@
           $footer_links = footer_links($current_url);
           foreach ($footer_links as $footer_link):
         ?>
-          <div class="w-full lg:w-1/2 xl:w-1/3 text-sm px-2"><?php echo $footer_link->top_links; ?></div>
+          <div class="w-full lg:w-1/2 xl:w-1/3 text-sm px-2">
+            <?php 
+              echo $footer_link->top_links; 
+            ?>
+          </div>
         <?php endforeach; ?>
       </div>
     </div>

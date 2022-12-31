@@ -34,16 +34,17 @@ function get_post_keywords() {
   $posts_url_array = array();
   $count_post_in_array = get_option( '_crb_footer_links_numbers' );;
 
-  $args = array('fields' => '_crb_post_keywords');
-  $posts = get_posts($args);
-  shuffle($posts);
-  foreach ($posts as $post) {
+  $footer_post_args = array('numberposts' => -1);
+  $footer_posts = get_posts($args);
+  shuffle($footer_posts);
+  foreach ($footer_posts as $post) {
     if (count($posts_links_array) < $count_post_in_array) {
       $post_id = $post->ID;
       $post_keywords = get_post_meta($post_id, '_crb_post_keywords', true);
       if ($post_keywords) {
         $post_url = get_the_permalink($post->ID);
         $post_keywords_array = explode(",", $post_keywords);
+        shuffle($post_keywords_array);
         foreach ($post_keywords_array as $keyword) {
           $keyword = trim($keyword);
           $ahref = '<a href="'.$post_url.'">'.$keyword.'</a>';
@@ -95,7 +96,6 @@ function get_term_keywords() {
 function prepare_links() {  
   $get_posts_links = get_post_keywords();
   $get_terms_links = get_term_keywords();
-  var_dump($get_posts_links);
   $all_links = array_merge($get_posts_links, $get_terms_links); 
   return $all_links;
 }
