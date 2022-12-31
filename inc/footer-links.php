@@ -35,10 +35,9 @@ function get_post_keywords() {
   $count_post_in_array = get_option( '_crb_footer_links_numbers' );;
 
   $footer_post_args = array('numberposts' => -1);
-  $footer_posts = get_posts($args);
+  $footer_posts = get_posts($footer_post_args);
   shuffle($footer_posts);
   foreach ($footer_posts as $post) {
-    var_dump($post->ID);
     if (count($posts_links_array) < $count_post_in_array) {
       $post_id = $post->ID;
       $post_keywords = get_post_meta($post_id, '_crb_post_keywords', true);
