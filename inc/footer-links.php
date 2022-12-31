@@ -38,12 +38,13 @@ function get_post_keywords() {
   $posts = get_posts($args);
   shuffle($posts);
   foreach ($posts as $post) {
-    var_dump($post);
     if (count($posts_links_array) < $count_post_in_array) {
       $post_id = $post->ID;
       $post_keywords = get_post_meta($post_id, '_crb_post_keywords', true);
       if ($post_keywords) {
+        
         $post_url = get_the_permalink($post->ID);
+        var_dump($post_url);
         $post_keywords_array = explode(",", $post_keywords);
         foreach ($post_keywords_array as $keyword) {
           $keyword = trim($keyword);
