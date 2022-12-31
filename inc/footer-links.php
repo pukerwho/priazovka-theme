@@ -42,9 +42,7 @@ function get_post_keywords() {
       $post_id = $post->ID;
       $post_keywords = get_post_meta($post_id, '_crb_post_keywords', true);
       if ($post_keywords) {
-        
         $post_url = get_the_permalink($post->ID);
-        var_dump($post_url);
         $post_keywords_array = explode(",", $post_keywords);
         foreach ($post_keywords_array as $keyword) {
           $keyword = trim($keyword);
@@ -97,6 +95,7 @@ function get_term_keywords() {
 function prepare_links() {  
   $get_posts_links = get_post_keywords();
   $get_terms_links = get_term_keywords();
+  var_dump($get_posts_links);
   $all_links = array_merge($get_posts_links, $get_terms_links); 
   return $all_links;
 }
