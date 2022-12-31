@@ -53,7 +53,7 @@
           <?php endwhile; endif; wp_reset_postdata(); ?>
         </div>
         <div class="flex justify-center">
-          <a href="<?php echo get_page_url('page-blog'); ?>" class="border border-red-400 bg-transparent hover:bg-red-400 text-gray-600 hover:text-gray-200 text-center font-medium rounded-lg px-6 py-3"><?php _e("Все записи", "treba-wp"); ?></a>
+          <a href="<?php echo get_page_url('page-blog'); ?>" class="border border-red-400 bg-transparent hover:bg-red-400 text-gray-600 dark:text-gray-200 hover:text-gray-200 text-center font-medium rounded-lg px-6 py-3"><?php _e("Все записи", "treba-wp"); ?></a>
         </div>
       </div>
       

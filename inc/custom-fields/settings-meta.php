@@ -15,6 +15,9 @@ function crb_attach_theme_options() {
     Field::make( 'text', 'crb_social_medium', 'Medium' ),
     Field::make( 'text', 'crb_social_instagram', 'Instagram' ),
   ))
+  ->add_tab( __('General'), array(
+    Field::make( 'text', 'crb_footer_links_numbers', 'Кількість посилань - * x2' ),
+  ))
   ->add_tab( __('Scripts'), array(
     Field::make( 'textarea', 'crb_google_analytics', 'Google Analytics' ),
     Field::make( 'footer_scripts', 'crb_footer_scripts', 'Scripts footer' )
