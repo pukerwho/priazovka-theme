@@ -74,7 +74,7 @@
 
 <div class="modal" data-modal="menu">
   <div class="modal_content w-full h-screen">
-    <div class="h-full bg-white rounded-xl p-4">
+    <div class="h-auto bg-white rounded-xl p-4">
       <div class="flex items-center justify-between mb-12">
         <div class="flex items-center text-xl relative mb-4">
           <a href="<?php echo get_home_url(); ?>" class="absolute-link"></a>
