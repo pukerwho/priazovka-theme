@@ -24,6 +24,7 @@ function crb_term_options() {
   ->where( 'term_taxonomy', '=', 'city' ) // only show our new field for categories
   ->add_fields( array(
     Field::make( 'image', 'crb_city_img', 'Заглавная картинка' )->set_value_type( 'url'),
+    Field::make( 'rich_text', 'crb_city_seo_text', 'SE-O Текст' ),
   ));
 }
 

@@ -1691,6 +1691,14 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.content-city img {
+  margin-bottom: 1.5rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  padding: 1.5rem;
+}
+
 .lang .lang-item {
   list-style-type: none;
   font-size: 0.875rem;

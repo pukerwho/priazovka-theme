@@ -105,6 +105,9 @@ body {
 .content .wp-block-image {
   @apply mb-6;
 }
+.content-city img {
+  @apply w-full rounded-lg border p-6 mb-6;
+}
 
 .lang .lang-item {
   @apply text-sm list-none opacity-60 hover:opacity-100;

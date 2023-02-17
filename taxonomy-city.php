@@ -110,6 +110,13 @@ $query = new WP_Query( array(
       </div>
 
       <div class="content">
+        <?php 
+        $seoText = carbon_get_term_meta($current_cat_id, 'crb_city_seo_text');
+        if ($seoText && $current_page < 2): ?>
+          <div class="content-city mb-6">
+            <?php echo apply_filters( 'the_content', $seoText  ); ?>
+          </div>
+        <?php endif; ?>
         <h2>
           <?php _e("Дополнительная информация", "treba-wp"); ?>
         </h2>
