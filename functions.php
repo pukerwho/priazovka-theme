@@ -281,3 +281,14 @@ function crb_get_i18n_theme_option( $option_name ) {
     $suffix = crb_get_i18n_suffix();
     return carbon_get_theme_option( $option_name . $suffix );
 }
+
+// Задаємо дефолтное значення всім записам
+add_action( 'init', 'add_meta_query_mainhide');
+function add_meta_query_mainhide() {
+  $posts_args = array('numberposts' => -1);
+  $all_posts = get_posts($posts_args);
+  foreach ($all_posts as $post) {
+    $post_id = $post->ID;
+    update_post_meta($post_id, '_crb_post_mainhide', 'no');
+  }
+}
