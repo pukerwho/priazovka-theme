@@ -21,7 +21,7 @@
       if (carbon_get_the_post_meta('crb_post_title')) {
         $current_title = carbon_get_the_post_meta('crb_post_title');
       }
-      if (carbon_get_the_post_meta('crb_post_title')) {
+      if (carbon_get_the_post_meta('crb_post_description')) {
         $current_description = carbon_get_the_post_meta('crb_post_description');
       }
     }
