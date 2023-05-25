@@ -15,6 +15,7 @@ if ( ! function_exists( 'treba_wp_setup' ) ) :
 		register_nav_menus(
 			array(
 				'header' => esc_html__( 'Header', 'treba-wp' ),
+        'footer' => esc_html__( 'Footer', 'treba-wp' ),
         'mobile' => esc_html__( 'Mobile', 'treba-wp' ),
         'lang_header' => esc_html__( 'Lang', 'treba-wp' ),
 			)
