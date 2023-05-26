@@ -23,7 +23,14 @@
               'posts_per_page' => 5,
               'meta_key' => 'post_count',
               'orderby' => 'meta_value_num',
-              'order' => 'DESC'
+              'order' => 'DESC',
+              'meta_query' => array(
+                array(
+                  'key' => '_crb_post_mainhide',
+                  'value' => 'yes',
+                  'compare' => '!='
+                ),
+              ),
             ) );
             if ($top_posts->have_posts()) : while ($top_posts->have_posts()) : $top_posts->the_post(); 
           ?>

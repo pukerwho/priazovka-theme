@@ -3,7 +3,13 @@
     $top_top_posts = new WP_Query( array( 
       'post_type' => 'post', 
       'posts_per_page' => 4,
-      'meta_key' => '_crb_post_top',
+      'meta_query' => array(
+        array(
+          'key' => '_crb_post_top',
+          'value' => 'yes',
+          'compare' => '='
+        ),
+      ),
     ) );
     if ($top_top_posts->have_posts()) : while ($top_top_posts->have_posts()) : $top_top_posts->the_post(); 
   ?>

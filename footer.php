@@ -43,7 +43,7 @@
         </div>
       </div>
       <div class="w-full xl:w-1/4 xl:px-4 mb-6 xl:mb-0">
-        <div class="text-xl font-bold mb-2"><?php _e("Меню", "treba-wp"); ?></div>
+        <div class="text-xl font-bold mb-2"><?php _e("ТОП", "treba-wp"); ?></div>
         <?php wp_nav_menu([
           'theme_location' => 'footer',
           'container' => 'div',
