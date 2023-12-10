@@ -1,4 +1,4 @@
-<div class="text-lg font-medium opacity-75 mb-4">🐈 <?php _e("Сколько живут коты", "treba-wp"); ?></div>
+<div class="text-lg font-medium opacity-75 mb-4">🐈 <?php _e("Сколько лет живут коты", "treba-wp"); ?></div>
 <div>
   <?php
     $menu_name = 'catlifespan';

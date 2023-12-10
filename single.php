@@ -134,6 +134,10 @@
       <div>
         <?php echo get_template_part('template-parts/components/allcity-block'); ?>
       </div>
+      <?php echo get_template_part('template-parts/components/sport-block'); ?>
+      <?php echo get_template_part('template-parts/components/name-block'); ?>
+      <?php echo get_template_part('template-parts/components/doglifespan-block'); ?>
+      <?php echo get_template_part('template-parts/components/catlifespan-block'); ?>
     </div>
   </div>
   
