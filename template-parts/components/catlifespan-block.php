@@ -1,7 +1,7 @@
-<div class="text-lg font-medium opacity-75 mb-4">👦 <?php _e("Имена", "treba-wp"); ?></div>
-<div class="border-b pb-5 mb-5">
+<div class="text-lg font-medium opacity-75 mb-4">🐈 <?php _e("Сколько живут коты", "treba-wp"); ?></div>
+<div>
   <?php
-    $menu_name = 'name';
+    $menu_name = 'catlifespan';
     $locations = get_nav_menu_locations();
 
     if( $locations && isset( $locations[ $menu_name ] ) ){

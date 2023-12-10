@@ -18,6 +18,8 @@ if ( ! function_exists( 'treba_wp_setup' ) ) :
         'footer' => esc_html__( 'Footer', 'treba-wp' ),
         'sport' => esc_html__( 'Sport', 'treba-wp' ),
         'name' => esc_html__( 'Name', 'treba-wp' ),
+        'doglifespan' => esc_html__( 'Dog lifespan', 'treba-wp' ),
+        'catlifespan' => esc_html__( 'Cat lifespan', 'treba-wp' ),
         'mobile' => esc_html__( 'Mobile', 'treba-wp' ),
         'lang_header' => esc_html__( 'Lang', 'treba-wp' ),
 			)
