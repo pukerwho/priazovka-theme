@@ -16,6 +16,8 @@ if ( ! function_exists( 'treba_wp_setup' ) ) :
 			array(
 				'header' => esc_html__( 'Header', 'treba-wp' ),
         'footer' => esc_html__( 'Footer', 'treba-wp' ),
+        'sport' => esc_html__( 'Sport', 'treba-wp' ),
+        'name' => esc_html__( 'Name', 'treba-wp' ),
         'mobile' => esc_html__( 'Mobile', 'treba-wp' ),
         'lang_header' => esc_html__( 'Lang', 'treba-wp' ),
 			)

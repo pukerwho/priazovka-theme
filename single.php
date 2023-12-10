@@ -32,7 +32,8 @@
             <!-- meta -->
             <div class="border dark:border-gray-500 shadow-lg rounded-lg px-6 py-4 mb-8">
               <div class="mb-2">
-                <div><span class="font-medium"><?php _e("Автор", "treba-wp"); ?></span>: 
+                <div>
+                  <span class="font-medium"><?php _e("Автор", "treba-wp"); ?></span>: 
                   <?php if (carbon_get_the_post_meta('crb_post_author')): ?>
                     <span class="italic"><?php echo carbon_get_the_post_meta('crb_post_author'); ?></span>
                     <div class="flex items-center text-sm">
@@ -50,6 +51,9 @@
                     <?php echo get_the_author(); ?>
                   <?php endif; ?>
                 </div>
+                <?php if (carbon_get_the_post_meta('crb_post_editor')): ?>
+                  <div><span class="font-medium"><?php _e("Редактор", "treba-wp"); ?></span>: <span class="italic"><?php echo carbon_get_the_post_meta('crb_post_editor'); ?></span></div>
+                <?php endif; ?>
               </div>
               <div class="flex flex-wrap -mx-2">
                 <div class="flex items-center text-sm opacity-75 px-2">

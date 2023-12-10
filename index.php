@@ -76,6 +76,8 @@
       <div>
         <?php echo get_template_part('template-parts/components/allcity-block'); ?>
         <?php echo get_template_part('template-parts/components/allhotels-block'); ?>
+        <?php echo get_template_part('template-parts/components/sport-block'); ?>
+        <?php echo get_template_part('template-parts/components/name-block'); ?>
       </div>
     </div>
   </div>
