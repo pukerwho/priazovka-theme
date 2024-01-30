@@ -4,8 +4,9 @@
   <div class="flex flex-wrap xl:-mx-3">
     <div class="w-full xl:w-2/12 xl:px-3">
       <!-- all categories -->
-      <div class="hidden xl:block sticky top-4">
+      <div class="hidden xl:block">
         <?php echo get_template_part('template-parts/components/allcategories-block'); ?>
+        <?php echo get_template_part('template-parts/components/quiz-block'); ?>
       </div>
       <!-- end all categories -->
     </div>
