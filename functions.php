@@ -39,6 +39,7 @@ include('inc/comments-functions.php');
 include('inc/create-custom-posts.php');
 include('inc/create-custom-taxonomy.php');
 include('inc/footer-links.php');
+include('inc/vote.php');
 
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;

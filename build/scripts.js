@@ -50,6 +50,16 @@ eval("var $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jqu
 
 /***/ }),
 
+/***/ "./src/js/emoji-films.js":
+/*!*******************************!*\
+  !*** ./src/js/emoji-films.js ***!
+  \*******************************/
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+eval("var $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n$(\".emoji-question-js\").on(\"click\", function(){\n  $(\".emoji-answer-js\").removeClass(\"hidden\");\n  $(\".emoji-question-js\").addClass(\"hidden\");\n});\n\n//# sourceURL=webpack://world/./src/js/emoji-films.js?");
+
+/***/ }),
+
 /***/ "./src/js/index.js":
 /*!*************************!*\
   !*** ./src/js/index.js ***!
@@ -57,7 +67,7 @@ eval("var $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jqu
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/main.scss */ \"./src/css/main.scss\");\n/* harmony import */ var _node_modules_jquery_ui_dist_jquery_ui_min_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/jquery-ui/dist/jquery-ui.min.js */ \"./node_modules/jquery-ui/dist/jquery-ui.min.js\");\n/* harmony import */ var _node_modules_jquery_ui_dist_jquery_ui_min_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_jquery_ui_dist_jquery_ui_min_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _modals_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modals.js */ \"./src/js/modals.js\");\n/* harmony import */ var _modals_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modals_js__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _tabs_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tabs.js */ \"./src/js/tabs.js\");\n/* harmony import */ var _tabs_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_tabs_js__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _subjects_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./subjects.js */ \"./src/js/subjects.js\");\n/* harmony import */ var _subjects_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_subjects_js__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _dark_light_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./dark-light.js */ \"./src/js/dark-light.js\");\n/* harmony import */ var _dark_light_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_dark_light_js__WEBPACK_IMPORTED_MODULE_5__);\n\n\n\n\n\n\n\n\n//# sourceURL=webpack://world/./src/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/main.scss */ \"./src/css/main.scss\");\n/* harmony import */ var _node_modules_jquery_ui_dist_jquery_ui_min_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/jquery-ui/dist/jquery-ui.min.js */ \"./node_modules/jquery-ui/dist/jquery-ui.min.js\");\n/* harmony import */ var _node_modules_jquery_ui_dist_jquery_ui_min_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_jquery_ui_dist_jquery_ui_min_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _modals_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modals.js */ \"./src/js/modals.js\");\n/* harmony import */ var _modals_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modals_js__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _tabs_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tabs.js */ \"./src/js/tabs.js\");\n/* harmony import */ var _tabs_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_tabs_js__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _subjects_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./subjects.js */ \"./src/js/subjects.js\");\n/* harmony import */ var _subjects_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_subjects_js__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _emoji_films_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./emoji-films.js */ \"./src/js/emoji-films.js\");\n/* harmony import */ var _emoji_films_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_emoji_films_js__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _vote_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./vote.js */ \"./src/js/vote.js\");\n/* harmony import */ var _vote_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_vote_js__WEBPACK_IMPORTED_MODULE_6__);\n/* harmony import */ var _dark_light_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./dark-light.js */ \"./src/js/dark-light.js\");\n/* harmony import */ var _dark_light_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_dark_light_js__WEBPACK_IMPORTED_MODULE_7__);\n\n\n\n\n\n\n\n\n\n\n//# sourceURL=webpack://world/./src/js/index.js?");
 
 /***/ }),
 
@@ -88,6 +98,16 @@ eval("//BLOG SUBJECTS\nlet blogSubjects = document.querySelector(\".single-subje
 /***/ (function() {
 
 eval("let tabsBtn = document.querySelectorAll(\".tab-btn\");\nlet tabsContent = document.querySelectorAll(\".tab-content\");\n\nfunction tabRemove() {\n  tabsContent.forEach((item) => {\n    item.classList.add(\"hidden\");\n  });\n  tabsBtn.forEach((tab) => {\n    tab.classList.remove(\"btn-primary\");\n    tab.classList.add(\"btn-secondary\");\n  });\n}\n\nfunction tabAdd(tabContent, item) {\n  tabContent.classList.remove(\"hidden\");\n  item.classList.add(\"btn-primary\");\n  item.classList.remove(\"btn-secondary\");\n}\n\ntabsBtn.forEach((item) => {\n  item.addEventListener(\"click\", () => {\n    tabData = item.dataset.tab;\n    let tabContent = document.querySelector(\n      '.tab-content[data-tab=\"' + tabData + '\"]'\n    );\n    tabRemove();\n    tabAdd(tabContent, item);\n  });\n});\n\n\n//# sourceURL=webpack://world/./src/js/tabs.js?");
+
+/***/ }),
+
+/***/ "./src/js/vote.js":
+/*!************************!*\
+  !*** ./src/js/vote.js ***!
+  \************************/
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+eval("var $ = __webpack_require__( /*! jquery */ \"./node_modules/jquery/dist/jquery.js\" );\n\nlocalItemName = localStorage.getItem('vote_yes');\nif (localItemName) {\n  $(\".item-show\").removeClass(\"hidden\");\n  $(\".vote-item[data-name=\"+localItemName+\"]\").addClass(\"border border-green-500\").removeClass(\"border-transparent\");\n}\n\ndocument.addEventListener(\"DOMContentLoaded\", function(event) {\n  $(\".vote-item\").on(\"click\", function(){\n    var itemName = $(this).data(\"name\");\n    if (localStorage.getItem('vote_yes')) {\n      return;\n    } else {\n      localStorage.setItem('vote_yes', itemName);\n      let data = {\n        'action': 'vote_click_action',\n        'itemName': itemName,\n      };\n      $.ajax({\n        url: ajaxurl, // AJAX handler\n        data: data,\n        type: 'POST',\n        beforeSend : function(xhr) {\n          console.log('Load');\n        },\n        success : function(data) {\n          if (data) {\n            console.log('data', data);\n            var data = $.parseJSON(data);\n            $(\".vote-item[data-name=\"+itemName+\"] .vote-item-result\").text(data[0]);\n            $(\"#vote-count\").text(data[1]);\n            $(\".item-show\").removeClass(\"hidden\");\n            $(\".vote-item[data-name=\"+itemName+\"]\").addClass(\"border border-green-500\").removeClass(\"border-transparent\");\n          }\n        }\n      });\n      console.log(itemName);\n    }\n  })\n});\n\n//# sourceURL=webpack://world/./src/js/vote.js?");
 
 /***/ })
 
