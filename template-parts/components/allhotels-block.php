@@ -1,5 +1,5 @@
 <div class="text-lg font-medium opacity-75 mb-4">🏠 <?php _e("Отели", "treba-wp"); ?></div>
-<div class="border-b pb-5 mb-5">
+<div class="border-b dark:border-gray-500 pb-5 mb-5">
   <?php 
     $new_posts = new WP_Query( array( 
       'post_type' => 'hotels', 

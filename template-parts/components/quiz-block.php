@@ -1,5 +1,5 @@
 <?php $random_number = random_int(1, 2); ?>
-<div class="border-t pt-5 mt-5">
+<div class="border-t dark:border-gray-500 pt-5 mt-5">
   <div class="bg-gray-200 dark:bg-gray-500 rounded-lg p-2">
     <div class="text-center font-bold mb-4"><?php _e("Угадайте фильм по эмодзи", "treba-wp"); ?></div>
     <?php if ($random_number === 1): ?>
@@ -19,7 +19,7 @@
   </div>
 </div>
 
-<div class="border-t pt-5 mt-5">
+<div class="border-t dark:border-gray-500 pt-5 mt-5">
   <div class="text-red-500 text-center text-lg mb-2"><?php _e("Опрос", "treba-wp"); ?></div>
   <div class="text-center font-bold mb-4"><?php _e("Ваша любимая пора года?", "treba-wp"); ?></div>
   <div>

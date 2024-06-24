@@ -1,10 +1,10 @@
 <div class="text-lg font-medium opacity-75 mb-4">📝 <?php _e("Похожие записи", "treba-wp"); ?></div>
-<div class="border-b pb-5 mb-5">
+<div class="border-b dark:border-gray-500 pb-5 mb-5">
   <?php 
     $new_posts = new WP_Query( array( 
       'post_type' => 'post', 
       'posts_per_page' => 5,
-      'orderby' => 'rand'
+      'order' => 'DESC',
     ) );
     if ($new_posts->have_posts()) : while ($new_posts->have_posts()) : $new_posts->the_post(); 
   ?>

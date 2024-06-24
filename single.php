@@ -120,9 +120,41 @@
             </div>
           </div> 
           <div class="xl:px-3">
-            <h2 class="text-2xl mb-6"><?php _e("ТОП", "treba-wp"); ?></h2>
-            <div>
+            <h2 class="text-2xl mb-6">🔥 <?php _e("ТОП", "treba-wp"); ?></h2>
+            <div class="border-b dark:border-gray-500 pb-5 mb-5">
               <?php echo get_template_part('template-parts/components/toptop-block'); ?>
+            </div>
+            <div>
+              <h2 class="text-2xl mb-6">👀 <?php _e("Сейчас читают", "treba-wp"); ?></h2>
+              <div>
+                <?php 
+                  $all_posts = new WP_Query( array( 
+                    'post_type' => 'post', 
+                    'posts_per_page' => 9,
+                    'orderby' => 'rand',
+                    'meta_query' => array(
+                      array(
+                        'key' => '_crb_post_keywords',
+                        'value' => '',
+                        'compare' => '='
+                      ),
+                    ),
+                    'tax_query' => array(
+                      array(
+                        'taxonomy'  => 'category',
+                        'field'     => 'term_id',
+                        'terms'     => array( 676, 35, 31, 674, 2394, 2391, 702, 2330, 2333, 36, 12, 339, 33, 712),
+                      )
+                    ),
+                    
+                  ) );
+                  if ($all_posts->have_posts()) : while ($all_posts->have_posts()) : $all_posts->the_post(); 
+                ?>
+                  <div class="border dark:border-gray-500 shadow-lg rounded-lg mb-6">
+                    <?php echo get_template_part('template-parts/post-item'); ?>
+                  </div>
+                <?php endwhile; endif; wp_reset_postdata(); ?>
+              </div>
             </div>
           </div>
         </div>  
