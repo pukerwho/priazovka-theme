@@ -21,6 +21,7 @@ function crb_post_theme_options() {
       Field::make( 'text', 'crb_post_author_instagram', 'Інстаграм автора' ),
       Field::make( 'text', 'crb_post_author_facebook', 'Фейсбук автора' ),
       Field::make( 'text', 'crb_post_editor', 'Редактор' ),
+      Field::make( 'text', 'crb_post_custom_date', 'Дата' ),
   ) );
   Container::make( 'post_meta', 'More' )
     ->where( 'post_type', '=', 'hotels' )
